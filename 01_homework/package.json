@@ -1,0 +1,20 @@
+{
+  "name": "01_homework",
+  "version": "1.0.0",
+  "description": "Создание платформы КраудФандинга",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html",
+    "test": "test"
+  },
+  "author": "Sergey Rebrov",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.1"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
