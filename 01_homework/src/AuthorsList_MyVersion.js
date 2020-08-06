@@ -5,35 +5,35 @@ class AuthorsList extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { moreAuthors: 3, isOpen: false }
+    this.state = { moreAuthors: true, counts: 3}
   }
-  toggle(n) {
+  toogleMoreAuthors(n) {
     this.setState({
-      moreAuthors: this.state.count,
-      isOpen: !this.state.isOpen
+      moreAuthors: !this.state.moreAuthors,
+      counts: n
     })
   }
 
   render() {
     const authors = this.props.authors
-    const { isOpen } = this.state
+    let button
+    if (this.state.moreAuthors == true && authors.length > 3) {
+      button = <button style={s.butmore} onClick={() => this.toogleMoreAuthors(this.state.moreAuthors.length)}>Все авторы</button>
+    } else if (this.state.moreAuthors == false){
+      button = <button style={s.buthide} onClick={() => this.toogleMoreAuthors(3)}>Скрыть</button>
+    }
     return (
       <div>
-        {authors.slice(0, isOpen ? authors.length : 3).map((author, idx) => (
+        {authors.slice(0,this.state.counts).map((author, idx) => (
           <div key={idx}>
             <AuthorCard author = {author} />
           </div>
         ))}
-        <ShowHideButton onClick={() => this.toggle()} isOpen={this.state.isOpen} />
+        {button}
       </div>
     );
   }
 }
-const ShowHideButton = ({ onClick, isOpen }) => (
-  <button onClick={onClick} style={ isOpen ? s.buthide : s.butmore }>
-    {isOpen ? 'Hide' : 'Show More'}
-  </button>
-)
 
 export default AuthorsList
 

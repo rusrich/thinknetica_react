@@ -27,8 +27,10 @@ class BookCard extends React.Component {
           <div><span style={styles.span}>Желаемая цена: </span>{ wishprice } руб.</div>
           <div><span style={styles.span}>Всего собрано: </span>{ total } руб.</div>
           <div><span style={styles.span}>Необходимая сумма: </span>{ wishtotal } руб.</div>
-          <WishBookPage style={styles.wishBook} wishbook = { this.props.book }/>
-          <DeliveredModal />
+          <div style={styles.butblock}>
+            <WishBookPage style={styles.wishBook} wishbook = { this.props.book }/>
+            <DeliveredModal style={styles.deliver} />
+          </div>
         </div>
       </div>
     )
@@ -87,5 +89,12 @@ const styles = {
     color: 'white',
     width: '85px',
     margin: '0 20px',
+  },
+  butblock: {
+    display: 'flex'
+  },
+  deliver: {
+    display: 'block',
+    marginTop: '40px'
   },
 }
