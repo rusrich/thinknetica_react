@@ -7,7 +7,7 @@ class AuthorsList extends React.Component {
 
     this.state = { moreAuthors: 3, isOpen: false }
   }
-  toggle(n) {
+  toggle() {
     this.setState({
       moreAuthors: this.state.count,
       isOpen: !this.state.isOpen
