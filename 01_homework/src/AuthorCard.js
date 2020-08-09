@@ -22,11 +22,10 @@ export default AuthorCard
 
 const styles = {
   body: {
-    fontFamily: 'Segoe Ui',
     color: '#333333',
     display: 'flex',
     marginLeft: '20px',
-    backgroundColor: '#d3e0f1',
+    backgroundColor: '#b4dbea',
     padding: '20px',
     maxHeight: '150px'
   },
@@ -41,18 +40,18 @@ const styles = {
     textAlign: 'justify'
   },
   imgbox: {
-    maxWidth: '100px',
+    width: '100px',
     maxHeight: '100px',
     marginRight: '20px',
   },
   img: {
-    maxWidth: '100%',
+    width: '100%',
     borderRadius: '60px',
   },
   infoblock: {
     flex: '1',
-    maxWidth: '300px',
-    backgroundColor: '#b2c3da',
+    width: '300px',
+    backgroundColor: '#88c2d8',
     padding: '10px',
     maxHeight: '85px'
   }
