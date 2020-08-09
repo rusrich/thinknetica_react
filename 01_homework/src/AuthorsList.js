@@ -31,7 +31,7 @@ class AuthorsList extends React.Component {
 }
 const ShowHideButton = ({ onClick, isOpen }) => (
   <button onClick={onClick} style={ isOpen ? s.buthide : s.butmore }>
-    {isOpen ? 'Hide' : 'Show More'}
+    {isOpen ? 'Скрыть' : 'Еще'}
   </button>
 )
 

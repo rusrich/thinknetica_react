@@ -1,36 +1,21 @@
 import React from 'react'
-import WishBookPage from "./WishBookPage";
-import DeliveredModal from "./DeliveredModal";
+
+import MainBlock from "./BookCard/MainBlock";
+import OptionsBlock from "./BookCard/OptionsBlock";
+import ImageBlock from "./BookCard/ImageBlock";
+import SubscriptionBlock from "./BookCard/SubscriptionBlock";
+import BuyBlock from "./BookCard/BuyBlock";
 
 class BookCard extends React.Component {
   render() {
-    const {
-      book: { title, description, cover, pages, language, progress, minprice, wishprice, total, wishtotal, subscribes }
-    } = this.props
-
     return (
       <div style={styles.body}>
-        <div style={styles.imgbox}>
-          <img style={styles.img} src={ cover } />
-        </div>
+        <ImageBlock {...this.props}/>
         <div style={styles.infoblock}>
-          <div style={styles.subsblock}>
-            <div style={styles.subs}>Подписчиков: <span style={styles.subsnum}>{subscribes}</span></div>
-            {subscribes > 29 && <div style={styles.best}>Бестселлер</div>}
-          </div>
-          <div style={styles.title}><h2>{ title }</h2></div>
-          <div style={styles.description}><span style={styles.span}>Описание: </span>{ description }</div>
-          <div><span style={styles.span}>Страниц: </span>{ pages }</div>
-          <div><span style={styles.span}>Язык: </span>{ language }</div>
-          <div><span style={styles.span}>Прогресс: </span>{ total/wishtotal * 100 }%</div>
-          <div><span style={styles.span}>Минимальная цена: </span>{ minprice } руб.</div>
-          <div><span style={styles.span}>Желаемая цена: </span>{ wishprice } руб.</div>
-          <div><span style={styles.span}>Всего собрано: </span>{ total } руб.</div>
-          <div><span style={styles.span}>Необходимая сумма: </span>{ wishtotal } руб.</div>
-          <div style={styles.butblock}>
-            <WishBookPage style={styles.wishBook} wishbook = { this.props.book }/>
-            <DeliveredModal style={styles.deliver} />
-          </div>
+          <SubscriptionBlock {...this.props}/>
+          <MainBlock {...this.props}/>
+          <OptionsBlock {...this.props}/>
+          <BuyBlock />
         </div>
       </div>
     )
@@ -47,13 +32,6 @@ const styles = {
   span: {
     fontWeight: 'bold',
   },
-  title: {
-    fontSize: '14px',
-  },
-  description: {
-    padding: '5px 0',
-    textAlign: 'justify'
-  },
   imgbox: {
     width: '300px',
     marginRight: '20px',
@@ -65,36 +43,5 @@ const styles = {
   },
   infoblock: {
     width: '500px',
-  },
-  subsblock: {
-    display: 'inline-flex'
-  },
-  wishBook: {
-    display: 'block',
-    marginTop: '40px'
-  },
-  subs: {
-    background: '#d21a1a',
-    padding: '5px 10px',
-    color: 'white',
-    width: '130px',
-    flex: '1',
-  },
-  subsnum: {
-    fontWeight: 'bold',
-  },
-  best: {
-    background: '#ffa500',
-    padding: '5px 10px',
-    color: 'white',
-    width: '85px',
-    margin: '0 20px',
-  },
-  butblock: {
-    display: 'flex'
-  },
-  deliver: {
-    display: 'block',
-    marginTop: '40px'
   },
 }

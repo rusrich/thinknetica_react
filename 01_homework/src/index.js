@@ -1,7 +1,9 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
+import { createContext } from 'react'
 
-import App from "./App";
+import App from "./App"
+import AuthContext from "./AuthContext"
 import './style.css'
 
 const book = {
@@ -45,9 +47,16 @@ const authors = [
   },
 ]
 
+const user = {
+  firstName: 'Sergey',
+  lastName: 'Rebrov',
+  email: 'rebrov.sv@yandex.ru',
+  avatarUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/250px-Flag_of_Russia.svg.png'
+}
+
 ReactDOM.render(
-  <div>
-    <App book = { book } authors = { authors }  />
-  </div>,
+  <AuthContext.Provider value = { user }>
+    <App book = { book } authors = { authors } />
+  </AuthContext.Provider>,
   document.getElementById('root')
 )
