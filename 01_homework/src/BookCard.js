@@ -9,12 +9,13 @@ import BuyBlock from "./BookCard/BuyBlock";
 class BookCard extends React.Component {
   render() {
     return (
+
       <div style={styles.body}>
-        <ImageBlock {...this.props}/>
+        <ImageBlock cover={this.props.book.cover}/>
         <div style={styles.infoblock}>
-          <SubscriptionBlock {...this.props}/>
-          <MainBlock {...this.props}/>
-          <OptionsBlock {...this.props}/>
+          <SubscriptionBlock subscribes={this.props.book.subscribes}/>
+          <MainBlock title={this.props.book.title} description={this.props.book.description} />
+          <OptionsBlock options={this.props.book.options}/>
           <BuyBlock />
         </div>
       </div>

@@ -6,21 +6,31 @@ class AuthorInfoBlock extends React.Component {
       author: {name, email, description}
     } = this.props
     return (
-      <div style={styles.infoblock}>
-        <div><span style={styles.span}>Автор: </span>{name}</div>
-        <div><span style={styles.span}>Email: </span>{email}</div>
-        <div><span style={styles.span}>Об авторе: </span>{description}</div>
-      </div>
+      <InfoOptions style={styles.infoblock}>
+        <span label='Автор'>{name}</span>
+        <span label='Email'>{email}</span>
+        <span label='Об авторе'>{description}</span>
+      </InfoOptions>
     )
   }
 }
 
 export default AuthorInfoBlock
 
+const InfoOptions = ({children}) => (
+  <div>
+    {children.map((child, idx) => (
+      <div key={idx}>
+        <div style={styles.span}>{child.props.label}:</div> {child}
+      </div>
+    ))}
+  </div>
+)
 
 const styles = {
   span: {
     fontWeight: 'bold',
+    display: 'inline-block'
   },
   infoblock: {
     flex: '1',

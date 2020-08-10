@@ -2,13 +2,10 @@ import React from 'react'
 
 class SubscriptionBlock extends React.Component {
   render() {
-    const {
-      book: {subscribes}
-    } = this.props
     return (
       <div style={styles.subsblock}>
-        <div style={styles.subs}>Подписчиков: <span style={styles.subsnum}>{subscribes}</span></div>
-        {subscribes > 29 && <div style={styles.best}>Бестселлер</div>}
+        <div style={styles.subs}>Подписчиков: <span style={styles.subsnum}>{this.props.subscribes}</span></div>
+        {this.props.subscribes > 29 && <div style={styles.best}>Бестселлер</div>}
       </div>
     )
   }

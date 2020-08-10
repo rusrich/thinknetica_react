@@ -6,7 +6,7 @@ class Feedback extends React.Component {
     
     this.state = {
       name: 'Укажите Имя',
-      email: 'Укажите email',
+      email: 'example@email.com',
       question: 'Задайте вопрос'
     }
 
@@ -30,24 +30,27 @@ class Feedback extends React.Component {
       <div id="feedback">
         <h3>Форма обратной связи</h3>
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <div><label>Имя:</label></div>
-            <input name='name' value={name} onChange={this.handleChange} />
-          </div>
-          <div>
-            <div><label>Имя:</label></div>
-            <input name='email' value={email} onChange={this.handleChange} />
-          </div>
-          <div>
-            <div><label>Зайдайте вопрос:</label></div>
-            <textarea name='question' value={question} onChange={this.handleChange} />
-          </div>
+          {/* После рекфакторинга не отображается value и не отслеживаются изменения в поле*/}
+          {/* подскажите как исправить. 2 часа потратил, пока никак не могу исправить.*/}
+            <Field type='name' name='name' value={name} label='Имя' onChange={this.handleChange} />
+            <Field type='email' name='email' value={email} label='E-mail' onChange={this.handleChange} />
+            <Field type='question' name='question' value={question} label='Вопрос' onChange={this.handleChange} />
           <input type="submit" value="Отправить" />
         </form>
       </div>
-
     )
   }
 }
 
 export default Feedback
+
+const Field = (props) => {
+  const Element = props.type === 'question' ? 'textarea' : 'input'
+  return (
+    <>
+      <label>{props.label}</label>
+      <div><Element /></div>
+      <div>{props.value}</div>
+    </>
+  )
+}

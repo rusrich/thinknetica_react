@@ -2,12 +2,9 @@ import React from 'react'
 
 class ImageBlock extends React.Component {
   render() {
-    const {
-      book: {cover}
-    } = this.props
     return (
       <div style={styles.imgbox}>
-        <img style={styles.img} src={ cover } />
+        <img style={styles.img} src={this.props.cover } />
       </div>
     )
   }

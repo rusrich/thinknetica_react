@@ -3,7 +3,7 @@ import React from 'react'
 class OptionsBlock extends React.Component {
   render() {
     const {
-      book: {pages, language, total, wishtotal, minprice, wishprice}
+      options: {pages, language, total, wishtotal, minprice, wishprice}
     } = this.props
     return (
       <div>

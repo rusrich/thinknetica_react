@@ -6,7 +6,6 @@ class UserInfo extends React.Component {
     return (
       <AuthContext.Consumer>
         {({firstName, lastName, avatarUrl, email}) => (
-          console.log(firstName, lastName),
           <div style={styles.user}>
             <img src={avatarUrl} style={styles.img} alt=""/>
             <div>{firstName + ' ' + lastName}</div>

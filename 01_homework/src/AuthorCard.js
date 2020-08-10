@@ -5,9 +5,10 @@ import AuthorInfoBlock from "./AuthorCard/AuthorInfoBlock";
 
 class AuthorCard extends React.Component {
   render() {
+    const { author: {avatar} } = this.props
     return (
       <div style={styles.body}>
-        <AuthorImageBlock {...this.props} />
+        <AuthorImageBlock avatar={avatar} />
         <AuthorInfoBlock {...this.props} />
       </div>
     )
