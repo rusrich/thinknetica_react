@@ -30,8 +30,6 @@ class Feedback extends React.Component {
       <div id="feedback">
         <h3>Форма обратной связи</h3>
         <form onSubmit={this.handleSubmit}>
-          {/* После рекфакторинга не отображается value и не отслеживаются изменения в поле*/}
-          {/* подскажите как исправить. 2 часа потратил, пока никак не могу исправить.*/}
             <Field type='name' name='name' value={name} label='Имя' onChange={this.handleChange} />
             <Field type='email' name='email' value={email} label='E-mail' onChange={this.handleChange} />
             <Field type='question' name='question' value={question} label='Вопрос' onChange={this.handleChange} />
@@ -49,8 +47,7 @@ const Field = (props) => {
   return (
     <>
       <label>{props.label}</label>
-      <div><Element /></div>
-      <div>{props.value}</div>
+      <div><Element name={props.name} onChange={props.onChange} value={props.value}/></div>
     </>
   )
 }
