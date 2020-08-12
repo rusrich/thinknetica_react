@@ -2,15 +2,13 @@ import React from 'react'
 import WishBookPage from "./WishBookPage";
 import DeliveredModal from "./DeliveredModal";
 
-class BuyBlock extends React.Component {
-  render() {
+const BuyBlock = (props) => {
     return (
       <div style={styles.butblock}>
         <WishBookPage style={styles.wishBook} />
         <DeliveredModal style={styles.deliver} />
       </div>
     )
-  }
 }
 
 export default BuyBlock

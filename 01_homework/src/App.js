@@ -5,17 +5,19 @@ import AuthorsList from "./AuthorsList"
 import Header from "./Header";
 import Footer from "./Footer";
 import Feedback from "./Feedback";
+import Relatives from "./BookCard/Relatives";
 
 class App extends React.Component {
   render() {
-    const { book, authors } = this.props
+    const { book, authors, relatives } = this.props
     return (
       <>
         <Header />
         <div style={styles.body}>
-          <BookCard style={styles.bookBox} book = { book } />
+          <BookCard style={styles.bookBox} book = { book }/>
           <AuthorsList style={styles.infoBox} authors = { authors } />
         </div>
+        <Relatives relatives={relatives} />
         <Feedback style={styles.feedback} />
         <Footer />
       </>

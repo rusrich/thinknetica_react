@@ -3,16 +3,14 @@ import React from 'react'
 import AuthorImageBlock from "./AuthorCard/AuthorImageBlock";
 import AuthorInfoBlock from "./AuthorCard/AuthorInfoBlock";
 
-class AuthorCard extends React.Component {
-  render() {
-    const { author: {avatar} } = this.props
+const AuthorCard = (props) => {
+    const { author: {avatar} } = props
     return (
       <div style={styles.body}>
         <AuthorImageBlock avatar={avatar} />
-        <AuthorInfoBlock {...this.props} />
+        <AuthorInfoBlock {...props} />
       </div>
     )
-  }
 }
 
 export default AuthorCard

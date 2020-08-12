@@ -1,11 +1,9 @@
 import React from 'react'
 
-class AuthorImageBlock extends React.Component {
-  render() {
-    return (
-      <div style={styles.imgbox}><img style={styles.img} src={this.props.avatar} /></div>
-    )
-  }
+const AuthorImageBlock = (props) => {
+  return (
+    <div style={styles.imgbox}><img style={styles.img} src={props.avatar}/></div>
+  )
 }
 
 export default AuthorImageBlock

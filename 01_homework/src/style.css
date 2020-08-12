@@ -51,3 +51,45 @@ h3 {
 .inline-block {
     display: inline-block;
 }
+
+.rel-img {
+    width: 150px;
+}
+
+.relative-book {
+    width: 500px;
+    display: flex;
+    margin: 40px 20px;
+}
+
+.rel-item {
+    width: 150px;
+    margin: 0 20px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.rel-author {
+    font-style: italic;
+}
+
+.rel-title {
+    font-weight: bold;
+}
+
+.button-hide {
+    display: block;
+    background: red;
+    color: white;
+    border: 0;
+    padding: 5px 10px;
+    position: absolute;
+    transition: 1s cubic-bezier();
+    opacity: 0;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.rel-item:hover .button-hide {
+    opacity: 1;
+}

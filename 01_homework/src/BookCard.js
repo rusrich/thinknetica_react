@@ -6,21 +6,18 @@ import ImageBlock from "./BookCard/ImageBlock";
 import SubscriptionBlock from "./BookCard/SubscriptionBlock";
 import BuyBlock from "./BookCard/BuyBlock";
 
-class BookCard extends React.Component {
-  render() {
-    return (
-
-      <div style={styles.body}>
-        <ImageBlock cover={this.props.book.cover}/>
-        <div style={styles.infoblock}>
-          <SubscriptionBlock subscribes={this.props.book.subscribes}/>
-          <MainBlock title={this.props.book.title} description={this.props.book.description} />
-          <OptionsBlock options={this.props.book.options}/>
-          <BuyBlock />
-        </div>
+const BookCard = (props) => {
+  return (
+    <div style={styles.body}>
+      <ImageBlock cover={props.book.cover}/>
+      <div style={styles.infoblock}>
+        <SubscriptionBlock subscribes={props.book.subscribes}/>
+        <MainBlock title={props.book.title} description={props.book.description}/>
+        <OptionsBlock options={props.book.options}/>
+        <BuyBlock />
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default BookCard

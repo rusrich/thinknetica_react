@@ -1,10 +1,9 @@
 import React from 'react'
 
-class OptionsBlock extends React.Component {
-  render() {
+const OptionsBlock = (props) => {
     const {
       options: {pages, language, total, wishtotal, minprice, wishprice}
-    } = this.props
+    } = props
     return (
       <div>
         <div><span style={styles.span}>Страниц: </span>{ pages }</div>
@@ -16,7 +15,6 @@ class OptionsBlock extends React.Component {
         <div><span style={styles.span}>Необходимая сумма: </span>{ wishtotal } руб.</div>
       </div>
     )
-  }
 }
 
 export default OptionsBlock

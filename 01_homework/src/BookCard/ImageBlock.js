@@ -1,13 +1,11 @@
 import React from 'react'
 
-class ImageBlock extends React.Component {
-  render() {
+const ImageBlock = (props) => {
     return (
       <div style={styles.imgbox}>
-        <img style={styles.img} src={this.props.cover } />
+        <img style={styles.img} src={props.cover } />
       </div>
     )
-  }
 }
 
 export default ImageBlock
