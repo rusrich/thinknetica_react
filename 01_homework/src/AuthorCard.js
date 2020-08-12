@@ -1,18 +1,15 @@
 import React from 'react'
 
+import AuthorImageBlock from "./AuthorCard/AuthorImageBlock";
+import AuthorInfoBlock from "./AuthorCard/AuthorInfoBlock";
+
 class AuthorCard extends React.Component {
   render() {
-    const {
-      author: { name, email, avatar, description }
-    } = this.props
+    const { author: {avatar} } = this.props
     return (
       <div style={styles.body}>
-        <div style={styles.imgbox}><img style={styles.img} src={avatar} /></div>
-        <div style={styles.infoblock}>
-          <div><span style={styles.span}>Автор: </span>{name}</div>
-          <div><span style={styles.span}>Email: </span>{email}</div>
-          <div><span style={styles.span}>Об авторе: </span>{description}</div>
-        </div>
+        <AuthorImageBlock avatar={avatar} />
+        <AuthorInfoBlock {...this.props} />
       </div>
     )
   }
@@ -29,9 +26,6 @@ const styles = {
     padding: '20px',
     maxHeight: '150px'
   },
-  span: {
-    fontWeight: 'bold',
-  },
   title: {
     fontSize: '14px',
   },
@@ -39,20 +33,4 @@ const styles = {
     padding: '5px 0',
     textAlign: 'justify'
   },
-  imgbox: {
-    width: '100px',
-    maxHeight: '100px',
-    marginRight: '20px',
-  },
-  img: {
-    width: '100%',
-    borderRadius: '60px',
-  },
-  infoblock: {
-    flex: '1',
-    width: '300px',
-    backgroundColor: '#88c2d8',
-    padding: '10px',
-    maxHeight: '85px'
-  }
 }

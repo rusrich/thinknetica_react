@@ -2,9 +2,6 @@ import React from 'react'
 
 class WishBookPage extends React.Component {
   render() {
-    const {
-      wishbook: {progress, minprice, wishprice, total, wishtotal}
-    } = this.props
     return (
       <div>
         <button style={styles.button}>В корзину</button>
