@@ -32,7 +32,11 @@ export default Relatives
 const BookItems = ({relativeBooks, removeFromRelatives}) => (
   console.log('render BookItems'),
     relativeBooks.length > 0 ?
-      <RelativeCard relativeBooks={relativeBooks} removeFromRelatives={removeFromRelatives}/>
+      <div className='relative-book'>
+        {relativeBooks.slice(0, 3).map((rel) => (
+          <RelativeCard rel={rel} key={rel.id} removeFromRelatives={removeFromRelatives}/>
+        ))}
+      </div>
       : <div className='relative-book'>Похожих книг не найдено</div>
 )
 
@@ -42,20 +46,16 @@ const Items = ({children, name}) => (
   </div>
 )
 
-const RelativeCard = React.memo(({relativeBooks, removeFromRelatives}) => {
+const RelativeCard = React.memo(({rel, removeFromRelatives}) => {
   return (
     console.log('render RelativeCard'),
-      <div className='relative-book'>
-        {relativeBooks.slice(0, 3).map((rel) => (
-          <div className='rel-item' key={rel.id}>
-            <Items name='button'>
-              <button className='button-hide' onClick={() => removeFromRelatives(rel.id)}>Скрыть</button>
-            </Items>
-            <Items name='image'><img className='rel-img' src={rel.cover}/></Items>
-            <Items name='title' className='rel-title'>{rel.title}</Items>
-            <Items name='author' className='rel-author'>{rel.authors[0]}</Items>
-          </div>
-        ))}
+      <div className='rel-item'>
+        <Items name='button'>
+          <button className='button-hide' onClick={() => removeFromRelatives(rel.id)}>Скрыть</button>
+        </Items>
+        <Items name='image'><img className='rel-img' src={rel.cover}/></Items>
+        <Items name='title' className='rel-title'>{rel.title}</Items>
+        <Items name='author' className='rel-author'>{rel.authors[0]}</Items>
       </div>
   )
 })
