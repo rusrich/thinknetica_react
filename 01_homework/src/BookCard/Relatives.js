@@ -17,10 +17,11 @@ class Relatives extends React.PureComponent {
   }
 
   render() {
-    const relatives = this.state.relativeBooks
+    console.log('render Component')
+    const {relativeBooks} = this.state
     return (
       <>
-        <BookItems removeFromRelatives={this.removeFromRelatives} relatives={relatives}/>
+        <BookItems removeFromRelatives={this.removeFromRelatives} relativeBooks={relativeBooks}/>
       </>
     )
   }
@@ -28,18 +29,33 @@ class Relatives extends React.PureComponent {
 
 export default Relatives
 
-const BookItems = React.memo(({relatives, removeFromRelatives}) => (
-  console.log('render Items'),
-    relatives.length > 0 ?
+const BookItems = ({relativeBooks, removeFromRelatives}) => (
+  console.log('render BookItems'),
+    relativeBooks.length > 0 ?
+      <RelativeCard relativeBooks={relativeBooks} removeFromRelatives={removeFromRelatives}/>
+      : <div className='relative-book'>Похожих книг не найдено</div>
+)
+
+const Items = ({children, name}) => (
+  <div className={name === 'title' ? 'rel-title' : 'rel-author'}>
+    {children}
+  </div>
+)
+
+const RelativeCard = React.memo(({relativeBooks, removeFromRelatives}) => {
+  return (
+    console.log('render RelativeCard'),
       <div className='relative-book'>
-        {relatives.slice(0, 3).map((rel) => (
-          <div className='rel-item' key={console.log('render item') || rel.id}>
-            <button className='button-hide' onClick={() => removeFromRelatives(rel.id)}>Скрыть</button>
-            <div><img className='rel-img' src={rel.cover}/></div>
-            <div className='rel-title'>{rel.title}</div>
-            <div className='rel-author'>{rel.authors[0]}</div>
+        {relativeBooks.slice(0, 3).map((rel) => (
+          <div className='rel-item' key={rel.id}>
+            <Items name='button'>
+              <button className='button-hide' onClick={() => removeFromRelatives(rel.id)}>Скрыть</button>
+            </Items>
+            <Items name='image'><img className='rel-img' src={rel.cover}/></Items>
+            <Items name='title' className='rel-title'>{rel.title}</Items>
+            <Items name='author' className='rel-author'>{rel.authors[0]}</Items>
           </div>
         ))}
       </div>
-      : <div className='relative-book'>Похожих книг не найдено</div>
-))
+  )
+})
