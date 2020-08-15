@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
-import { createContext } from 'react'
+import {createContext} from 'react'
 
 import App from "./App"
 import AuthContext from "./AuthContext"
@@ -21,6 +21,40 @@ const book = {
   },
   'subscribes': 31
 }
+
+const relatives = [
+  {
+    'id': 1,
+    'title': 'Kotlin в действии',
+    'cover': 'https://cv6.litres.ru/pub/c/pdf-kniga/cover_415/27069061-dmitriy-zhemerov-kotlin-v-deystvii-27069061.jpg',
+    'authors': ['Дмитрий Жемеров', 'Светлана Исакова']
+  },
+  {
+    'id': 2,
+    'title': 'Разработка веб-приложений в ReactJS',
+    'cover': 'https://cv8.litres.ru/pub/c/pdf-kniga/cover_415/22880082-a-horton-razrabotka-veb-prilozheniy-v-reactjs-22880082.jpg',
+    'authors': ['Райан Вайс', 'Адам Хортон']
+  },
+  {
+    'id': 3,
+    'title': 'Чистый Agile. Основы гибкости',
+    'cover': 'https://cv2.litres.ru/pub/c/elektronnaya-kniga/cover_415/56089520-robert-s-martin-chistyy-agile-osnovy-gibkosti.jpg',
+    'authors': ['Роберт Мартин']
+  },
+  {
+    'id': 4,
+    'title': 'React в действии',
+    'cover': 'https://cv3.litres.ru/pub/c/pdf-kniga/cover_415/42226735-mark-tilens-tomas-react-v-deystvii-42226735.jpg',
+    'authors': ['Марк Тиленс Томас']
+  },
+  {
+    'id': 5,
+    'title': 'Изучаем Python. Программирование игр',
+    'cover': 'https://cv3.litres.ru/pub/c/pdf-kniga/cover_415/29415136-erik-metiz-izuchaem-python-programmirovanie-igr-vizualizaciya-dan-29415136.jpg',
+    'authors': ['Эрик Мэтиз']
+  }
+
+]
 
 const authors = [
   {
@@ -57,8 +91,8 @@ const user = {
 }
 
 ReactDOM.render(
-  <AuthContext.Provider value = { user }>
-    <App book = { book } authors = { authors } />
+  <AuthContext.Provider value={user}>
+    <App book={book} authors={authors} relatives={relatives}/>
   </AuthContext.Provider>,
   document.getElementById('root')
 )

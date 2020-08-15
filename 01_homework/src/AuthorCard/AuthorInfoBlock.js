@@ -1,18 +1,16 @@
 import React from 'react'
 
-class AuthorInfoBlock extends React.Component {
-  render() {
-    const {
-      author: {name, email, description}
-    } = this.props
-    return (
-      <div style={styles.infoblock}>
-        <InfoOptions label='Автор'>{name}</InfoOptions>
-        <InfoOptions label='Email'>{email}</InfoOptions>
-        <InfoOptions label='Об авторе'>{description}</InfoOptions>
-      </div>
-    )
-  }
+const AuthorInfoBlock = (props) => {
+  const {
+    author: {name, email, description}
+  } = props
+  return (
+    <div style={styles.infoblock}>
+      <InfoOptions label='Автор'>{name}</InfoOptions>
+      <InfoOptions label='Email'>{email}</InfoOptions>
+      <InfoOptions label='Об авторе'>{description}</InfoOptions>
+    </div>
+  )
 }
 
 export default AuthorInfoBlock
