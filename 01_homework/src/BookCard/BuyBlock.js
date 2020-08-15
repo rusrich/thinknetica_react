@@ -2,7 +2,7 @@ import React from 'react'
 import WishBookPage from "./WishBookPage";
 import DeliveredModal from "./DeliveredModal";
 
-const BuyBlock = (props) => {
+const BuyBlock = () => {
     return (
       <div style={styles.butblock}>
         <WishBookPage style={styles.wishBook} />

@@ -9,6 +9,10 @@ form {
     margin-top: 40px;
 }
 
+form.buy-form {
+    margin-top: 0px;
+}
+
 label {
     line-height: 30px;
     margin: 10px 0;
@@ -25,6 +29,12 @@ input[type="submit" i] {
 input {
     padding: 5px 10px;
     border: 1px solid grey;
+}
+
+input.buy-input {
+    width: 100px;
+    padding: 8px 10px;
+    margin-right: 10px;
 }
 
 #feedback {
