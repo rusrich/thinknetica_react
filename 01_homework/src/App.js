@@ -1,11 +1,11 @@
 import React from 'react'
 
-import BookCard from "./BookCard"
 import AuthorsList from "./AuthorsList"
 import Header from "./Header";
 import Footer from "./Footer";
 import Feedback from "./Feedback";
-import Relatives from "./BookCard/Relatives";
+import BookAppContainer from "./BookAppContainer"
+import RelativeAppContainer from "./RelativeAppContainer";
 
 class App extends React.Component {
   render() {
@@ -14,10 +14,10 @@ class App extends React.Component {
       <>
         <Header />
         <div style={styles.body}>
-          <BookCard style={styles.bookBox} book = { book }/>
+          <BookAppContainer style={styles.bookBox}/>
           <AuthorsList style={styles.infoBox} authors = { authors } />
         </div>
-        <Relatives relatives={relatives} />
+        <RelativeAppContainer />
         <Feedback style={styles.feedback} />
         <Footer />
       </>

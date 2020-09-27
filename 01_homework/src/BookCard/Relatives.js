@@ -17,7 +17,6 @@ class Relatives extends React.PureComponent {
   }
 
   render() {
-    console.log('render Component')
     const {relativeBooks} = this.state
     return (
       <>
@@ -30,7 +29,6 @@ class Relatives extends React.PureComponent {
 export default Relatives
 
 const BookItems = ({relativeBooks, removeFromRelatives}) => (
-  console.log('render BookItems'),
     relativeBooks.length > 0 ?
       <div className='relative-book'>
         {relativeBooks.slice(0, 3).map((rel) => (
@@ -48,14 +46,13 @@ const Items = ({children, name}) => (
 
 const RelativeCard = React.memo(({rel, removeFromRelatives}) => {
   return (
-    console.log('render RelativeCard'),
       <div className='rel-item'>
         <Items name='button'>
           <button className='button-hide' onClick={() => removeFromRelatives(rel.id)}>Скрыть</button>
         </Items>
         <Items name='image'><img className='rel-img' src={rel.cover}/></Items>
         <Items name='title' className='rel-title'>{rel.title}</Items>
-        <Items name='author' className='rel-author'>{rel.authors[0]}</Items>
+        <Items name='author' className='rel-author'>{rel.authors}</Items>
       </div>
   )
 })
